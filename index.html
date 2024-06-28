@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuvette Task - Figma</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="icon" href="./figma.png">
+</head>
+<body>
+    <div id="container" style="display: block;">
+        <div class="box"></div>
+        <p class="text_common" id="trock">ROCK</p><br>
+        <p class="text_common" id="tpaper">PAPER</p><br>
+        <p class="text_common" id="tscissors">SCISSORS</p><br>
+        <div id="score1"></div>
+        <p id="computer" class="headingclass">COMPUTER</p>
+        <p id="cscore" class="headingclass">SCORE </p>
+        <p id="computerScore">0</p>
+
+        <div id="score2"> </div>
+        <p id="your" class="headingclass">YOUR</p>
+        <p id="yscore" class="headingclass">SCORE </p>
+        <p id="yourScore">0</p>
+    </div>
+    <div id="home" style="display: block;">
+        <div id="rock" onclick="playGame('rock')">
+            <img id="roc" src="./rock.png">
+        </div>
+        <div id="scissors" onclick="playGame('scissors')">
+            <img id="sci" src="./scissors.png">
+        </div>
+        <div id="paper" onclick="playGame('paper')">
+            <img id="pap" src="./paper.png">
+        </div>
+        <img id="line1" src="./Line1.png">
+        <img id="line2" src="./Line2.png">
+        <img id="line3" src="./Line3.png">
+        <div id="rules" value="RULES" onclick="openrules()">RULES</div>
+        <img id="gamerules" src="./gamerules.png" style="display:none;">
+        <img id="closerules" src="./Ellipse 6.png" onclick="closerules()" style="display:none;">
+        <img id="closeimg" src="./X.png" onclick="closerules()" style="display:none;">
+    </div>
+    </div>
+    <div id="screen1" style="display: none;">
+        <p id="win">YOU WIN</p>
+        <p id="agpc">AGAINST PC</p>
+        <button id="playagain" onclick="reset()">PLAY AGAIN</button>
+        <p id="yp"> YOU PICKED</p>
+        <p id="pp"> PC PICKED</p>"
+        <div id="rules1" value="RULES" onclick="openrules1()">RULES</div>
+        <img id="gamerules1" src="./gamerules.png" style="display:none;">
+        <img id="closerules1" src="./Ellipse 6.png" onclick="closerules1()" style="display:none;">
+        <img id="closeimg1" src="./X.png" onclick="closerules1()" style="display:none;">
+        <div id="next" value="next" onclick="nextpage()">NEXT</div>
+
+    </div>
+    <div id="screen2" style="display: none;">
+        <p id="win">YOU LOST</p>
+        <p id="agpc">AGAINST PC</p>
+        <button id="playagain" onclick="reset()">PLAY AGAIN</button>
+        <p id="yp"> YOU PICKED</p>
+        <p id="pp"> PC PICKED</p>
+        <div id="rules2" value="RULES" onclick="openrules2()">RULES</div>
+        <img id="gamerules2" src="./gamerules.png" style="display:none;">
+        <img id="closerules2" src="./Ellipse 6.png" onclick="closerules2()" style="display:none;">
+        <img id="closeimg2" src="./X.png" onclick="closerules2()" style="display:none;">
+
+    </div>
+    <div id="screen3" style="display: none">
+        <p id="win">TIE UP</p>
+        <button id="playagain" onclick="reset()">REPLAY</button>
+        <p id="yp"> YOU PICKED</p>
+        <p id="pp"> PC PICKED</p>
+        <div id="rules3" value="RULES" onclick="openrules3()">RULES</div>
+        <img id="gamerules3" src="./gamerules.png" style="display:none;">
+        <img id="closerules3" src="./Ellipse 6.png" onclick="closerules3()" style="display:none;">
+        <img id="closeimg3" 1 src="./X.png" onclick="closerules3()" style="display:none;">
+    </div>
+    <div id="rocksci" style="display: none;">
+        <div id="rocks">
+            <img id="rocs" src="./rock.png">
+        </div>
+        <div id="lc">
+            <div class="circle"></div>
+        </div>
+        <div id="rsci">
+            <img id="rscissor" src="./scissors.png">
+        </div>
+    </div>
+    <div id="scipaper" style="display: none;">
+        <div id="scip">
+            <img id="scipap" src="./scissors.png">
+        </div>
+        <div id="lc">
+            <div class="circle"></div>
+        </div>
+        <div id="spap">
+            <img id="spaper" src="./paper.png">
+        </div>
+    </div>
+    <div id="paprock" style="display: none;">
+        <div id="papr">
+            <img id="paperr" src="./paper.png">
+        </div>
+        <div id="lc">
+            <div class="circle"></div>
+        </div>
+        <div id="prock">
+            <img id="paprock" src="./rock.png">
+        </div>
+    </div>
+    <div id="rockpap" style="display: none;">
+        <div id="rpap">
+            <img id="rockpap" src="./rock.png">
+        </div>
+        <div id="rpaper">
+            <img id="rockpaper" src="./paper.png">
+        </div>
+        <div id="rc">
+            <div class="rcircle"></div>
+        </div>
+    </div>
+    <div id="papsci" style="display: none;">
+        <div id="paps">
+            <img id="papsci" src="./paper.png">
+        </div>
+        <div id="psci">
+            <img id="pscissor" src="./scissors.png">
+        </div>
+        <div id="rc">
+            <div class="rcircle"></div>
+        </div>
+    </div>
+    <div id="scirock" style="display: none;">
+        <div id="scir">
+            <img id="sciro" src="./scissors.png">
+        </div>
+        <div id="srock">
+            <img id="sro" src="./rock.png">
+        </div>
+        <div id="rc">
+            <div class="rcircle"></div>
+        </div>
+    </div>
+    <div id="rockrock" style="display: none;">
+        <div id="rockr">
+            <img id="rockro" src="./rock.png">
+        </div>
+        <div id="rrock">
+            <img id="rro" src="./rock.png">
+        </div>
+    </div>
+    <div id="scisci" style="display: none;">
+        <div id="scis">
+            <img id="scisc" src="./scissors.png">
+        </div>
+        <div id="ssci">
+            <img id="sscis" src="./scissors.png">
+        </div>
+    </div>
+    <div id="pappap" style="display: none;">
+        <div id="papp">
+            <img id="pappa" src="./paper.png">
+        </div>
+        <div id="ppap">
+            <img id="ppaper" src="./paper.png">
+        </div>
+    </div>
+    <div id="nextpage" style="display: none;">
+        <img id="cup" src="./cup.png">
+        <img id="star1" src="./Star 1.png">
+        <img id="star9" src="./Star 9.png">
+        <img id="star3" src="./Star 3.png">
+        <img id="star4" src="./Star 4.png">
+        <img id="star2" src="./Star 2.png">
+        <img id="star7" src="./Star 7.png">
+        <img id="star5" src="./Star 5.png">
+        <img id="star6" src="./Star 6.png">
+        <p id="hurray">HURRAY !!</p>
+        <P id="nyw">YOU WON THE GAME</P>
+        <button id="nplayagain" onclick="reset()">PLAY AGAIN</button>
+        <div id="rules4" value="RULES" onclick="openrules4()">RULES</div>
+        <img id="gamerules4" src="./gamerules.png" style="display:none;">
+        <img id="closerules4" src="./Ellipse 6.png" onclick="closerules2()" style="display:none;">
+        <img id="closeimg4" src="./X.png" onclick="closerules4()" style="display:none;">
+    </div>
+    <script src="j.js"></script>
+</body>
+</html>
